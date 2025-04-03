@@ -172,12 +172,9 @@ void displayDPCD(WINDOW *pad, Node *node, int *content_line)
         }
     }
 
-    print_bold_text(pad, line++, 1, "DPCD AUX Path: %s\n", dpcd_aux_path);
+    const char *json_path = MESON_SOURCE_ROOT "/tools/display-top/data/dpcd.json";
 
-    /* Fetch the corresponding json information for the node */
-    const char dpcd_json_path[] = "./data/dpcd.json";
-
-    char *json_data = read_file(dpcd_json_path);
+    char *json_data = read_file(json_path);
     if (!json_data)
     {
         print_red_text(pad, line++, 1, "Failed to read DPCD JSON file");

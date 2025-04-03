@@ -309,7 +309,8 @@ void displayMMIO(WINDOW *pad, Node *node, int *content_line)
 {
     int line = 0;
 
-    char json_file_path[] = "./data/local/Singleson.json";
+    const char *json_file_path = MESON_SOURCE_ROOT "/tools/display-top/data/registersBxml.json";
+    
     char *json_data = read_file(json_file_path);
     if (json_data == NULL)
     {

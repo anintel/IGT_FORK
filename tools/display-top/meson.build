@@ -1,4 +1,5 @@
 cflags = ['-Wall', '-Wextra', '-Iinclude', '-I/usr/include/libdrm', '-I/usr/local/include']
+cflags += ['-DMESON_SOURCE_ROOT="' + meson.source_root() + '"']
 ldflags = ['-ldrm', '-lncurses', '-lmenu', '-lform', '-lpanel', '-lcjson', '-lpciaccess', '-lm', '-lpci']
 
 # Include directories (for header files)

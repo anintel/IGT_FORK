@@ -102,11 +102,13 @@ void processDPCDjsonHelper(cJSON *json, Node *parentNode)
 
 void processDPCDjson(Node *parentNode)
 {
+    const char *file_path = MESON_SOURCE_ROOT "/tools/display-top/data/dpcd.json";
+
     log_message(LOG_INFO, "Opening DPCD json file");
-    FILE *file = fopen("./data/dpcd.json", "r");
+    FILE *file = fopen(file_path, "r");
     if (!file)
     {
-        log_message(LOG_ERROR, "Failed to open DPCD json file");
+        log_message(LOG_ERROR, "Failed to open DPCD json file at %s", file_path);
         return;
     }
 
@@ -146,9 +148,11 @@ void processDPCDjson(Node *parentNode)
 
 void initializeDPCD()
 {
-    if (access("./data/dpcd.json", F_OK) != 0)
+    const char *json_path = MESON_SOURCE_ROOT "/tools/display-top/data/dpcd.json";
+
+    if (access(json_path, F_OK) != 0)
     {
-        log_message(LOG_ERROR, "DPCD json file does not exist");
+        log_message(LOG_ERROR, "DPCD json file does not exist at %s", json_path);
         return;
     }
 

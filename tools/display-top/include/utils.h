@@ -50,6 +50,10 @@
 
 #define TRACE_PATH "/sys/kernel/debug/tracing/trace"
 
+#ifndef MESON_SOURCE_ROOT
+#define MESON_SOURCE_ROOT "."
+#endif
+
 extern int drm_fd;
 
 typedef struct

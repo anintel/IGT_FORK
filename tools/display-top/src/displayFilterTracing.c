@@ -164,7 +164,7 @@ void displayFilterTracing(WINDOW *pad, Node *node, int *content_line)
         end_addr = start_addr;
     }
 
-    char json_file_path[] = "./data/Registers.json";
+    const char *json_file_path = MESON_SOURCE_ROOT "/tools/display-top/data/Registers.json";
     char *json_data = read_file(json_file_path);
     if (!json_data)
     {

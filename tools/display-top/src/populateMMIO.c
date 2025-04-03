@@ -43,7 +43,7 @@ void processJSONHierarchy(cJSON *json, Node *parentNode)
 
 void createAddressNode(Node *parentNode)
 {
-    const char *jsonFilePath = "./data/RegisterReference.json";
+    const char *jsonFilePath = MESON_SOURCE_ROOT "/tools/display-top/data/Registers.json";
 
     FILE *file = fopen(jsonFilePath, "r");
     if (!file)
@@ -107,12 +107,12 @@ void initializeMMIO()
     Node *MMIO = createNode("MMIO Registers", NULL, root);
     MMIO->displayFunction = displayMMIOSummary;
 
-    const char *jsonFilePath = "./data/local/Singleson.json";
+    const char *jsonFilePath = MESON_SOURCE_ROOT "/tools/display-top/data/registersBxml.json";
 
     FILE *file = fopen(jsonFilePath, "r");
     if (!file)
     {
-        log_message(LOG_ERROR, "Failed to open the Singleson JSON file");
+        log_message(LOG_ERROR, "Failed to open the registersBxml JSON file");
         return;
     }
 
